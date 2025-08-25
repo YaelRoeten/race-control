@@ -1,4 +1,4 @@
-input.onButtonPressed(Button.A, function () {
+radio.onReceivedNumber(function (receivedNumber) {
     checkpoint_gehaald = 1
     basic.pause(500)
     checkpoint_gehaald = 0
@@ -12,6 +12,6 @@ basic.forever(function () {
     if (checkpoint_gehaald == 1) {
         basic.showNumber(timer)
     }
-    basic.pause(100)
-    timer += 0.1
+    basic.pause(50)
+    timer += 0.05
 })

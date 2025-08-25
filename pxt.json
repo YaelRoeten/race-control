@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pxt-cutebotpro": "github:elecfreaks/pxt-cutebot-pro#v2.1.2"
     },
     "files": [
         "main.blocks",
