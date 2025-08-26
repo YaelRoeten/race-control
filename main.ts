@@ -20,6 +20,9 @@ input.onButtonPressed(Button.A, function () {
         timer += 0.05
     }
 })
+input.onButtonPressed(Button.B, function () {
+    start = 0
+})
 let timer = 0
 let checkpoint_gehaald = 0
 let start = 0
