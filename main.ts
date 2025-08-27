@@ -17,7 +17,9 @@ input.onGesture(Gesture.Shake, function () {
     basic.showNumber(timer)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    basic.showNumber(timer)
+    serial.redirectToUSB()
+    serial.writeValue("checkpoint" + check_1, timer)
+    check_1 += 1
 })
 input.onButtonPressed(Button.AB, function () {
     for (let index = 0; index < 2; index++) {
@@ -27,11 +29,23 @@ input.onButtonPressed(Button.AB, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    start = 0
+    if (timer - last_timer > cheat_timer) {
+        last_timer = timer
+        serial.writeLine("goed")
+    } else {
+        if (timer - last_timer <= cheat_timer) {
+            serial.writeLine("Hallo" + "cheater")
+        }
+    }
+    serial.redirectToUSB()
 })
+let last_timer = 0
 let timer_finish = 0
+let check_1 = 0
 let timer = 0
+let cheat_timer = 0
 let start = 0
 start = 0
+cheat_timer = 2
 radio.setTransmitPower(7)
 radio.setGroup(25)
